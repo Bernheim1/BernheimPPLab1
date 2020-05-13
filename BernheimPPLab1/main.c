@@ -7,10 +7,10 @@
 
 
 #define TAMTIPO 4
-#define TAMMOTOS 5
+#define TAMMOTOS 1000
 #define TAMCOLORES 5
 #define TAMSERVICIOS 4
-#define TAMTRABAJOS 10
+#define TAMTRABAJOS 1000
 
 int mostrarMenu();
 
