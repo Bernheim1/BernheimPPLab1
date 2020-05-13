@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1589381461 source:c:\users\bernheim\desktop\bernheimpplab1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validaciones.h"
+	"motos.h"
+
+1589341793 c:\users\bernheim\desktop\bernheimpplab1\validaciones.h
+
+1589342481 source:c:\users\bernheim\desktop\bernheimpplab1\validaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validaciones.h"
+
+1589379870 source:c:\users\bernheim\desktop\bernheimpplab1\motos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validaciones.h"
+	"motos.h"
+
+1589378138 c:\users\bernheim\desktop\bernheimpplab1\motos.h
+
