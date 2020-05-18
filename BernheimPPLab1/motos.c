@@ -120,7 +120,7 @@ int buscarLibreMoto(eMoto vec[],int tam)
 void mostrarDescripcionTipos(eTipo tipos[],int tamTipo)
 {
 
-    printf("\nListado de Tipos\n");
+    printf("\nListado de tipos\n");
     printf("id        Descripcion\n");
 
     for(int i=0; i<tamTipo; i++)
@@ -132,7 +132,7 @@ void mostrarDescripcionTipos(eTipo tipos[],int tamTipo)
 void mostrarDescripcionColores(eColor colores[],int tamColores)
 {
 
-    printf("\nListado de Tipos\n");
+    printf("\nListado de colores\n");
     printf("id          Descripcion\n");
 
     for(int i=0; i<tamColores; i++)
@@ -220,7 +220,7 @@ void mostrarMoto(eMoto x,eTipo tipos[],int tamTipos,eColor colores[], int tamCol
     cargarDescripcionTipo(nombreTipo,x.idTipo,tipos,tamTipos);
     cargarDescripcionColor(nombreColor,x.idColor,colores,tamColores);
 
-    printf("%d     %6s    %6s     %6s       %d   \n",x.id,x.marca,nombreTipo,nombreColor,x.cilindrada);
+    printf("%d     %6s    %6s     %6s        %d   \n",x.id,x.marca,nombreTipo,nombreColor,x.cilindrada);
 
 }
 int cargarDescripcionTipo(char tipo[],int id, eTipo tipos[], int tamTipos)
