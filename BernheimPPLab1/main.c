@@ -28,6 +28,7 @@ int main()
     int proximoIdMoto = 1;
     int proximoIdTrabajo = 21000;
     int flagAltaMoto = 0;
+    int flagAltaTrabajo = 0;
 
 
     eTipo tiposMotos [TAMTIPO]= {{1000, "Enduro"}, {1001, "Chopera"}, {1002, "Scooter"},{1003, "CicloMotor"}};
@@ -104,16 +105,27 @@ int main()
             // ALTA TRABAJO
             if(flagAltaMoto)
             {
-                altaTrabajo(proximoIdTrabajo,listaTrabajos,TAMTRABAJOS,servicios,TAMSERVICIOS,listaMotos,TAMMOTOS);
+                if(altaTrabajo(proximoIdTrabajo,listaTrabajos,TAMTRABAJOS,servicios,TAMSERVICIOS,listaMotos,TAMMOTOS,tiposMotos,TAMTIPO,colores,TAMCOLORES))
+                {
+                    proximoIdTrabajo++;
+                    flagAltaTrabajo = 1;
+                }
             }
             else
             {
-                printf("Primero debe ingresar una moto para poder dar de alta trabajos\n\n");
+                printf("\nPrimero debe ingresar una moto para poder dar de alta trabajos\n\n");
             }
             break;
         case 9:
             //LISTAR TRABAJOS
-            mostrarTrabajos(listaTrabajos,TAMTRABAJOS,servicios,TAMSERVICIOS);
+            if(flagAltaTrabajo)
+            {
+                mostrarTrabajos(listaTrabajos,TAMTRABAJOS,servicios,TAMSERVICIOS);
+            }
+            else
+            {
+                printf("Primero debe ingresar trabajos para poder listarlos\n\n");
+            }
             break;
         case 10:
             printf("Confirma salida: ");

@@ -25,7 +25,7 @@ int altaMoto(int idX,eMoto vec[], int tam,eTipo tipos[], int tamTipos,eColor col
 
     printf("***** ALTA MOTO *****\n\n");
 
-    if(indice == -1) // hay lugar?
+    if(indice == -1)
     {
         printf("Sistema completo\n\n");
     }
@@ -45,6 +45,7 @@ int altaMoto(int idX,eMoto vec[], int tam,eTipo tipos[], int tamTipos,eColor col
                 todoOK=0;
                 break;
             }
+            //TIPO
             mostrarDescripcionTipos(tipos,tamTipos);
             if((utn_getEntero(&auxInt,2,"Ingrese el tipo: ","Error. Reingrese el tipo\n",1000,1003))==0)
             {
@@ -56,6 +57,7 @@ int altaMoto(int idX,eMoto vec[], int tam,eTipo tipos[], int tamTipos,eColor col
                 todoOK=0;
                 break;
             }
+            //COLOR
             mostrarDescripcionColores(colores,tamColores);
             if((utn_getEntero(&auxInt,2,"Ingrese el color: ","Error. Reingrese el color\n",10000,10004))==0)
             {
@@ -67,6 +69,7 @@ int altaMoto(int idX,eMoto vec[], int tam,eTipo tipos[], int tamTipos,eColor col
                 todoOK=0;
                 break;
             }
+            //CILINDRADA
             if((utn_getEntero(&auxInt,2,"Ingrese la cilindara: ","Error. Reingrese la cilindrada\n",0,751))==0)
             {
                 auxMoto.cilindrada=auxInt;

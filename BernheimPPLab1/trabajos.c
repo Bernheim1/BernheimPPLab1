@@ -18,11 +18,11 @@ void mostrarDescripcionServicios(eServicio servicios[],int tamServicio)
 
     for(int i=0; i<tamServicio; i++)
     {
-        printf("%d      %10s      %2.f \n",servicios[i].id,servicios[i].descripcion,servicios[i].precio);
+        printf("%d      %10s      $%2.f \n",servicios[i].id,servicios[i].descripcion,servicios[i].precio);
     }
 
 }
-int altaTrabajo(int idX,eTrabajo vec[], int tamTrabajo,eServicio servicios[],int tamServicios,eMoto listaMotos[], int tamMotos)
+int altaTrabajo(int idX,eTrabajo vec[], int tamTrabajo,eServicio servicios[],int tamServicios,eMoto listaMotos[], int tamMotos,eTipo tipos[],int tamTipos,eColor colores[],int tamColores)
 {
     int todoOK = -1;
     int indice = buscarLibreTrabajo(vec,tamTrabajo);
@@ -33,7 +33,7 @@ int altaTrabajo(int idX,eTrabajo vec[], int tamTrabajo,eServicio servicios[],int
 
     printf("***** ALTA TRABAJO *****\n\n");
 
-    if(indice == -1) // hay lugar?
+    if(indice == -1)
     {
         printf("Sistema completo\n\n");
     }
@@ -42,7 +42,8 @@ int altaTrabajo(int idX,eTrabajo vec[], int tamTrabajo,eServicio servicios[],int
     {
         while(todoOK==-1)
         {
-            //MARCA
+            //ID MOTO
+            mostrarMotos(listaMotos,tamMotos,tipos,tamTipos,colores,tamColores);
             if((utn_getEntero(&auxInt,2,"Ingrese el id de la moto: ","Error. Reingrese el id de la moto\n",0,1000))==0)
             {
                 if((buscarMoto(auxInt,listaMotos,tamMotos))!=-1)
@@ -63,11 +64,17 @@ int altaTrabajo(int idX,eTrabajo vec[], int tamTrabajo,eServicio servicios[],int
                 todoOK=0;
                 break;
             }
+            //SERVICIOS
             mostrarDescripcionServicios(servicios,tamServicios);
             if((utn_getEntero(&auxInt,2,"Ingrese el servicio: ","Error. Reingrese el servicio\n",20000,20003))==0)
             {
                 auxTrabajo.idServicio=auxInt;
             }
+            else
+            {
+                printf("Se quedo sin intentos para ingresar el servicio\n");
+            }
+            //DIA
             if((utn_getEntero(&auxInt,2,"Ingrese el dia: ","Error. Reingrese el dia\n",1,31))==0)
             {
                 auxTrabajo.fecha.dia=auxInt;
@@ -78,6 +85,7 @@ int altaTrabajo(int idX,eTrabajo vec[], int tamTrabajo,eServicio servicios[],int
                 todoOK=0;
                 break;
             }
+            //MES
             if((utn_getEntero(&auxInt,2,"Ingrese el mes: ","Error. Reingrese el mes\n",1,12))==0)
             {
                 auxTrabajo.fecha.mes=auxInt;
@@ -88,6 +96,7 @@ int altaTrabajo(int idX,eTrabajo vec[], int tamTrabajo,eServicio servicios[],int
                 todoOK=0;
                 break;
             }
+            //ANIO
             if((utn_getEntero(&auxInt,2,"Ingrese el anio: ","Error. Reingrese el anio\n",2019,2050))==0)
             {
                 auxTrabajo.fecha.anio=auxInt;
@@ -147,14 +156,14 @@ void inicializarTrabajos(eTrabajo vec[],int tam)
 void mostrarTrabajo(eTrabajo x,eServicio servicios[], int tamServicios)
 {
     char nombreServicio[21];
-    int precioServicio;
+    float precioServicio;
 
     cargarDescripcionServicio(nombreServicio,&precioServicio,x.idServicio,servicios,tamServicios);
 
-    printf(" %d     %d     %10s       %d     %d/%d/%d \n",x.id,x.idMoto,nombreServicio,precioServicio,x.fecha.dia,x.fecha.mes,x.fecha.anio);
+    printf(" %d      %d       %10s      $%.2f       %d/%d/%d \n",x.id,x.idMoto,nombreServicio,precioServicio,x.fecha.dia,x.fecha.mes,x.fecha.anio);
 
 }
-int cargarDescripcionServicio(char servicio[],int* precio,int id, eServicio servicios[], int tamServicios)
+float cargarDescripcionServicio(char servicio[],float* precio,int id, eServicio servicios[], int tamServicios)
 {
     int todoOK = 0;
 
@@ -175,7 +184,7 @@ void mostrarTrabajos(eTrabajo x[],int tamTrabajos,eServicio servicios[],int tamS
     int flag=0;
     system("cls");
     printf("\n*****LISTADO DE TRABAJOS *****\n");
-    printf("  ID     ID MOTO     SERVICIO       PRECIO      FECHA \n");
+    printf("  ID     ID MOTO     SERVICIO       PRECIO       FECHA \n");
 
     for(int i=0; i<tamTrabajos; i++)
     {

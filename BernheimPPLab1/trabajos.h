@@ -33,7 +33,7 @@ typedef struct
 void mostrarDescripcionServicios(eServicio servicios[],int tamServicio);
 int buscarLibreTrabajo(eTrabajo vec[],int tam);
 void inicializarTrabajos(eTrabajo vec[],int tam);
-int altaTrabajo(int idX,eTrabajo vec[], int tamTrabajo,eServicio servicios[],int tamServicios,eMoto listaMotos[], int tamMotos);
+int altaTrabajo(int idX,eTrabajo vec[], int tamTrabajo,eServicio servicios[],int tamServicios,eMoto listaMotos[], int tamMotos,eTipo tipos[],int tamTipos,eColor colores[],int tamColores);
 void mostrarTrabajo(eTrabajo x,eServicio servicios[], int tamServicios);
-int cargarDescripcionServicio(char servicio[],int* precio,int id, eServicio servicios[], int tamServicios);
+float cargarDescripcionServicio(char servicio[],float* precio,int id, eServicio servicios[], int tamServicios);
 void mostrarTrabajos(eTrabajo x[],int tamTrabajos,eServicio servicios[],int tamServicios);
